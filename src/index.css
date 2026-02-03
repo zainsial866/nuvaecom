@@ -1,0 +1,220 @@
+:root {
+  color-scheme: light;
+  /* Nüva Brand Colors */
+  --color-primary: #00ABE4;
+  --color-primary-light: #4DD0FF;
+  --color-primary-dark: #008CB8;
+  --color-primary-glow: rgba(0, 171, 228, 0.4);
+
+  --color-secondary: #E9F1FA;
+  --color-accent: #00ABE4;
+  --color-white: #FFFFFF;
+  --color-dark: #0F172A;
+
+  /* Theme Semantic Variables (Default Light) */
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F4F9FF;
+  --color-text-main: #334155;
+  --color-text-heading: #0F172A;
+  --color-text-muted: #64748B;
+  --color-border: #E2E8F0;
+  --color-card: #FFFFFF;
+  --color-navbar: rgba(255, 255, 255, 0.85);
+
+  /* Gray Scale */
+  --color-gray-100: #F1F5F9;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-400: #94A3B8;
+  --color-gray-500: #64748B;
+  --color-gray-800: #1E293B;
+
+  /* Fluid Typography */
+  --font-size-base: 1rem;
+  --font-size-h1: clamp(2.5rem, 8vw + 1rem, 4.5rem);
+  --font-size-h2: clamp(2rem, 5vw + 1rem, 3rem);
+  --font-size-h3: clamp(1.25rem, 3vw + 1rem, 1.75rem);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --container-padding: clamp(1rem, 5vw, 2.5rem);
+  --max-width: 1400px;
+  --header-height: clamp(70px, 10vh, 90px);
+}
+
+.dark-theme {
+  color-scheme: dark;
+  --color-bg: #0F172A;
+  --color-bg-soft: #1E293B;
+  --color-text-main: #CBD5E1;
+  --color-text-heading: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-border: #334155;
+  --color-card: #1E293B;
+  --color-navbar: rgba(15, 23, 42, 0.8);
+  --color-white: #0F172A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-heading);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  min-height: 48px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.visible-mobile {
+  display: flex !important;
+}
+
+@media (min-width: 769px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+.hidden-mobile {
+  display: none !important;
+}
+
+@media (min-width: 769px) {
+  .hidden-mobile {
+    display: flex !important;
+  }
+}
+
+/* Advanced Visual Effects */
+.text-glow {
+  text-shadow:
+    0 0 10px var(--color-primary-glow),
+    0 0 20px var(--color-primary-glow),
+    0 0 40px rgba(0, 171, 228, 0.2);
+}
+
+.text-glow-white {
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.bg-mesh {
+  background-color: var(--color-white);
+  background-image:
+    radial-gradient(at 100% 0%, var(--color-secondary) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, var(--color-secondary) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(0, 171, 228, 0.05) 0px, transparent 50%);
+}
+
+.bg-mesh-dark {
+  background-color: var(--color-dark);
+  background-image:
+    radial-gradient(at 100% 0%, rgba(0, 171, 228, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(0, 171, 228, 0.1) 0px, transparent 50%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0077b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
